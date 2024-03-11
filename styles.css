@@ -34,12 +34,13 @@ h1, h2, h3 {
     margin: 10px;
 
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    
+    grid-template-rows: auto auto 1fr 1fr auto;
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: 25% 1fr 1fr;
     grid-template-areas:
-    "nav    nav     nav" 
-    "header hearder header"
+    "logo    nav     nav" 
+    "header header header"
     "aside  main    main"
     "aside  main    main"
     "footer footer  footer";
@@ -52,6 +53,11 @@ h1, h2, h3 {
 /* nav */
 nav {
     grid-area: nav;
+    border-bottom: 2px dashed var(--secondary);
+    display: grid;
+    align-items: center;
+  
+   
 }
 
 nav ul {
@@ -59,42 +65,62 @@ nav ul {
     padding: 0;
     gap: 10px;
     list-style-type: none;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: min(20vh, 200px); */
+    grid-template-rows: repeat(min(150px, 1fr));
+
+    
 }
-nav a {
+nav li a {
     background-color: var(--darkest);
     display: block;
     text-decoration: none;
-    padding: 0.8rem;
+
     text-align: center;
 
     color: #fff;
-    text-transform: capitalize;
     font-size: 1.5rem;
 
     border-radius: 10px;
 }
-nav a:hover {
+nav li a:hover {
     background-color: var(--primary);
 }
-
 .logo {
-    max-width: 50%;
+    grid-area: logo;
+    display: grid;
+    justify-content: center;
+}
+.logo img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
 }
 
 /* Specifics */
 header {
     grid-area: header;
 
-    background-image: url(#);
+    /* background-image: url(sunset.jpg); */
     background-repeat: no-repeat;
+    background-size: contain;
 
-    height: 9rem;
+    height: 20rem;
     padding-bottom: 1em;
+
+    text-align: center;
+
+    border-bottom: 2px dashed var(--secondary);
+}
+header h1 {
+    font-size: 5rem;
 }
 
 aside {
     grid-area: aside;
+    border-right: 2px dashed var(--secondary);
 }
 
 main {
@@ -103,7 +129,37 @@ main {
 
 footer {
     grid-area: footer;
+    border-top: 2px dashed;
 }
-img {
+
+figure {
+    float: right;
+}
+figure .img {
     object-fit: cover;
+    max-height: 100%;
+    max-width: 100%;
+    width: min(50%, 500px);
+}
+figcaption {
+    display: inline;
+}
+
+
+@media (width < 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "logo"
+        "nav"
+        "header"
+        "aside"
+        "main"
+        "footer";
+    }
+
+    nav ul {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
 }
