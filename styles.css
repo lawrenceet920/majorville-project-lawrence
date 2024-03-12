@@ -28,36 +28,33 @@ h1, h2, h3 {
     font-family: "Francois One", sans-serif;
 }
 
-
 /* grid */
+
 .wrapper {
-    margin: 10px;
+    margin: 20px;
 
     display: grid;
     
     grid-template-rows: auto auto 1fr 1fr auto;
-    /* grid-template-columns: repeat(3, 1fr); */
-    grid-template-columns: 25% 1fr 1fr;
+    grid-template-columns: 1fr 1fr 4fr;
     grid-template-areas:
     "logo    nav     nav" 
     "header header header"
-    "aside  main    main"
-    "aside  main    main"
+    "aside  aside    main"
+    "aside  aside    main"
     "footer footer  footer";
 
 }
 .area {
-    padding: 10px;
+    padding: 20px;
 }
 
 /* nav */
+
 nav {
     grid-area: nav;
-    border-bottom: 2px dashed var(--secondary);
     display: grid;
     align-items: center;
-  
-   
 }
 
 nav ul {
@@ -66,7 +63,6 @@ nav ul {
     gap: 10px;
     list-style-type: none;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: min(20vh, 200px); */
     grid-template-rows: repeat(min(150px, 1fr));
 
     
@@ -86,6 +82,7 @@ nav li a {
 nav li a:hover {
     background-color: var(--primary);
 }
+
 .logo {
     grid-area: logo;
     display: grid;
@@ -100,55 +97,77 @@ nav li a:hover {
 }
 
 /* Specifics */
+
+    /* Header */
 header {
     grid-area: header;
 
-    /* background-image: url(sunset.jpg); */
+    background-image: url(sunset-1800-400.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 
     height: 20rem;
     padding-bottom: 1em;
 
     text-align: center;
-
-    border-bottom: 2px dashed var(--secondary);
 }
 header h1 {
     font-size: 5rem;
 }
 
+    /* Aside */
 aside {
     grid-area: aside;
-    border-right: 2px dashed var(--secondary);
 }
 
+    /* Main */
 main {
     grid-area: main;
 }
 
+    /* Footer */
 footer {
     grid-area: footer;
     border-top: 2px dashed;
 }
 
+
+
+/* Images */
 figure {
     float: right;
+    display: inline;
+    width: min(50%, 500px);
+    background-color: var(--darkest);
+
+    margin-left: 10px;
 }
 figure .img {
     object-fit: cover;
     max-height: 100%;
     max-width: 100%;
-    width: min(50%, 500px);
 }
-figcaption {
-    display: inline;
+figcaption, .attribution {
+    color: var(--secondary);
+}
+figcaption a, .attribution a {
+    color: var(--primary);
+}
+
+/* Very Specifics */
+li {
+    margin-bottom: 0.5rem;
+}
+a .food-truck {
+    color: var(--primary);
+    font-weight: bold;
 }
 
 
 @media (width < 900px) {
     .wrapper {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto 1fr auto;
         grid-template-areas: 
         "logo"
         "nav"
@@ -161,5 +180,13 @@ figcaption {
     nav ul {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+    }
+
+    header {
+        background-image: url(sunset.jpg);
+    }
+
+    h2, .food-truck {
+        text-align: center;
     }
 }
