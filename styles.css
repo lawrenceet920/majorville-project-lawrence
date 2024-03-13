@@ -9,6 +9,7 @@ Majorville Project  */
     --blank: #fdf8e1;
     --dark: #263940;
     --darkest: #0f2128;
+    font-size: 18px;
 }
 * {
     margin: 0;
@@ -31,22 +32,19 @@ h1, h2, h3 {
 /* grid */
 
 .wrapper {
-    margin: 20px;
-
     display: grid;
-    
-    grid-template-rows: auto auto 1fr 1fr auto;
+
+    grid-template-rows: auto auto 1fr auto;
     grid-template-columns: 1fr 1fr 4fr;
     grid-template-areas:
     "logo    nav     nav" 
     "header header header"
     "aside  aside    main"
-    "aside  aside    main"
     "footer footer  footer";
-
 }
 .area {
-    padding: 20px;
+    padding: 10px;
+    margin: 5px 20px 0px 20px;
 }
 
 /* nav */
@@ -55,6 +53,8 @@ nav {
     grid-area: nav;
     display: grid;
     align-items: center;
+
+    background-color: #ba8a59;
 }
 
 nav ul {
@@ -87,6 +87,8 @@ nav li a:hover {
     grid-area: logo;
     display: grid;
     justify-content: center;
+
+    background-color: #ba8a59;
 }
 .logo img {
     max-width: 100%;
@@ -127,8 +129,14 @@ main {
 
     /* Footer */
 footer {
+    /* spacing */
+    height: 5vh;
     grid-area: footer;
-    border-top: 2px dashed;
+    text-align: center;
+
+    /* colors */
+    background-color: var(--secondary);
+    color: var(--blank);
 }
 
 
@@ -137,10 +145,13 @@ footer {
 figure {
     float: right;
     display: inline;
-    width: min(50%, 500px);
+    width: min(50%, 600px);
     background-color: var(--darkest);
 
     margin-left: 10px;
+
+        /* Border for image */
+    padding: 10px;
 }
 figure .img {
     object-fit: cover;
@@ -162,7 +173,10 @@ a .food-truck {
     color: var(--primary);
     font-weight: bold;
 }
-
+.this-page {
+    font-weight: bold;
+    color: #eee;
+}
 
 @media (width < 900px) {
     .wrapper {
@@ -172,11 +186,14 @@ a .food-truck {
         "logo"
         "nav"
         "header"
-        "aside"
         "main"
+        "aside"
         "footer";
     }
 
+    nav {
+        padding: 0 5VW;
+    }
     nav ul {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
