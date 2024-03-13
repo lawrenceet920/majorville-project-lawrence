@@ -59,25 +59,24 @@ nav {
 
 nav ul {
     display: grid;
+
     padding: 0;
     gap: 10px;
     list-style-type: none;
+
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(min(150px, 1fr));
-
-    
 }
 nav li a {
     background-color: var(--darkest);
+    border-radius: 10px;
+
     display: block;
     text-decoration: none;
 
     text-align: center;
-
     color: #fff;
     font-size: 1.5rem;
-
-    border-radius: 10px;
 }
 nav li a:hover {
     background-color: var(--primary);
@@ -85,6 +84,7 @@ nav li a:hover {
 
 .logo {
     grid-area: logo;
+
     display: grid;
     justify-content: center;
 
@@ -110,7 +110,6 @@ header {
 
     height: 20rem;
     padding-bottom: 1em;
-
     text-align: center;
 }
 header h1 {
@@ -146,11 +145,11 @@ figure {
     float: right;
     display: inline;
     width: min(50%, 600px);
-    background-color: var(--darkest);
 
     margin-left: 10px;
 
         /* Border for image */
+    background-color: var(--darkest);
     padding: 10px;
 }
 figure .img {
@@ -158,6 +157,7 @@ figure .img {
     max-height: 100%;
     max-width: 100%;
 }
+
 figcaption, .attribution {
     color: var(--secondary);
 }
