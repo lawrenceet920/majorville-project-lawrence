@@ -178,6 +178,11 @@ a .food-truck {
     color: #eee;
 }
 
+header .attribution {
+    margin-top: 10rem;
+    font-weight: bold;
+}
+
 @media (width < 900px) {
     .wrapper {
         grid-template-columns: 1fr;
